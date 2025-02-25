@@ -1,0 +1,19 @@
+<h1>Add an Entry for <%= @place["name"] %></h1>
+
+<%= form_with url: "/places/#{@place["id"]}/entries", method: "post", local: true do |form| %>
+  <%= form.hidden_field :place_id, value: @place["id"] %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :date %><br>
+    <%= form.date_field :date %>
+  </p>
+  <p>
+    <%= form.submit "Save Entry" %>
+  </p>
+<% end %>
+
+<p><a href="/places">Back to Places I've Been</a></p>

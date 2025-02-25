@@ -1,0 +1,27 @@
+<h1>Places I've Been</h1>
+
+<ul>
+  <% @places.each do |place| %>
+    <li>
+      <%= link_to place["name"], "/places/#{place["id"]}" %>
+
+      <% if place.entries.any? %>
+        <ul>
+          <% place.entries.each do |entry| %>
+            <li>
+              <strong><%= entry["title"] %></strong>: <%= entry["description"] %> (<%= entry["date"] %>)
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+
+     
+    </li>
+  <% end %>
+</ul>
+
+
+
+<p>
+  <a href="/places/new">Add a New Place</a>
+</p>
