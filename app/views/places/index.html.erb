@@ -1,6 +1,13 @@
 <h1>Places I've Been</h1>
 
 <ul>
+  <li>
+    <a href="/places/1">Bowling Green, FL</a>
+  </li>
+
+  <li>
+    <a href="/places/2">Los Angeles, CA</a>
+  </li>
   <% @places.each do |place| %>
     <li>
       <%= link_to place["name"], "/places/#{place["id"]}" %>

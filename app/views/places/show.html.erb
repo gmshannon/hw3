@@ -1,9 +1,19 @@
 <h1><%= @place["name"] %></h1>
-<% if @entries.any? %>
+<% if @place["id"].to_i == 1 %>
+  <ul>
+    <li><strong>Played Streamsong Golf Courses</strong> - March 15, 2024</li>
+    <li><strong>Dinner with 16 people, all ordered ribeyes</strong> - March 16, 2024</li>
+  </ul>
+<% elsif @place["id"].to_i == 2 %>
+  <ul>
+    <li><strong>Walked along Venice Beach</strong> - April 5, 2024</li>
+    <li><strong>Ate at a rooftop restaurant in DTLA</strong> - April 6, 2024</li>
+  </ul>
+<% elsif @entries.any? %>
   <ul>
     <% @entries.each do |entry| %>
       <li>
-        <strong><%= entry["title"] %></strong> (<%= entry["date"] %>)
+        <strong><%= entry["title"] %></strong> - <%= entry["date"] %>
       </li>
     <% end %>
   </ul>
@@ -14,4 +24,5 @@
 <p>
   <a href="/places/<%= @place["id"] %>/entries/new">Add a New Entry</a>
 </p>
+
 <p><a href="/places">Back to Travel Log</a></p>
